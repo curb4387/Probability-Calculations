@@ -72,9 +72,29 @@ int main()
     std::cout << "Number of times the experiment was performed\n";
     int experiment = input_number();
 
-    double prob = calculate_empirical(event, experiment);
-    std::cout << "\nThe empirical probability is " << event << " / "
-              << experiment << " = " << prob << "%\n";
+    // Use try-catch to make sure times experiment was performed is greater than 0
+    // and greater than or equal to the times the event occurred
+    try
+    {
+        double prob = calculate_empirical(event, experiment);
+        if (event <= experiment)
+        {
+            std::cout << "\nThe empirical probability is " << event << " / "
+                      << experiment << " = " << prob << "%\n";
+        }
+        else if (experiment == 0)
+        {
+            throw(experiment);
+        }
+        else
+        {
+            throw(event);
+        }
+    }
+    catch (int e)
+    {
+        std::cout << "\nThe calculation is impossible. Please try again.\n";
+    }
 
     return 0;
 }
