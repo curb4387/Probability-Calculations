@@ -59,6 +59,34 @@ double calculate_empirical(int event_num, int exp_num)
     return round(((event_num * 1.0) / exp_num) * 100);
 }
 
+// Function to validate the calculation
+void validate_calculation(int ev, int ex)
+{
+    // Use try-catch to make sure times experiment was performed is greater than 0
+    // and greater than or equal to the times the event occurred
+    try
+    {
+        double prob = calculate_empirical(ev, ex);
+        if (ev <= ex)
+        {
+            std::cout << "\nThe empirical probability is " << ev << " / "
+                      << ex << " = " << prob << "%\n";
+        }
+        else if (ex == 0)
+        {
+            throw(ex);
+        }
+        else
+        {
+            throw(ev);
+        }
+    }
+    catch (int e)
+    {
+        std::cout << "\nThe calculation is impossible. Please try again.\n";
+    }
+}
+
 int main()
 {
     // Tell the user how to use the program
@@ -72,29 +100,7 @@ int main()
     std::cout << "Number of times the experiment was performed\n";
     int experiment = input_number();
 
-    // Use try-catch to make sure times experiment was performed is greater than 0
-    // and greater than or equal to the times the event occurred
-    try
-    {
-        double prob = calculate_empirical(event, experiment);
-        if (event <= experiment)
-        {
-            std::cout << "\nThe empirical probability is " << event << " / "
-                      << experiment << " = " << prob << "%\n";
-        }
-        else if (experiment == 0)
-        {
-            throw(experiment);
-        }
-        else
-        {
-            throw(event);
-        }
-    }
-    catch (int e)
-    {
-        std::cout << "\nThe calculation is impossible. Please try again.\n";
-    }
+    validate_calculation(event, experiment);
 
     return 0;
 }
