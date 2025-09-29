@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include "empirical.h"
 
 /*
     This program calculates probability using the empirical probability formula,
@@ -7,7 +8,6 @@
     experiment is performed.
 */
 
-// Function to validate user input, must be integer greater than or equal to 0
 bool validate_input(int num)
 {
     bool validity;
@@ -23,7 +23,6 @@ bool validate_input(int num)
     return validity;
 }
 
-// Function to get user input
 int input_number()
 {
     int user_num;
@@ -39,16 +38,14 @@ int input_number()
     return user_num;
 }
 
-// Function to calculate empirical probability
 double calculate_empirical(int event_num, int exp_num)
 {
     return round(((event_num * 1.0) / exp_num) * 100);
 }
 
-// Function to validate the calculation
 void validate_calculation(int ev, int ex)
 {
-    // Use try-catch to make sure times experiment was performed is greater than 0
+    // Times experiment was performed is greater than 0
     // and greater than or equal to the times the event occurred
     try
     {
@@ -71,22 +68,4 @@ void validate_calculation(int ev, int ex)
     {
         std::cout << "\nThe calculation is impossible. Please try again.\n";
     }
-}
-
-int main()
-{
-    // Tell the user how to use the program
-    std::cout << "To calculate the empirical probability of your experiment:\n"
-              << "1) Enter the number of times the favorable event occured,\n"
-              << "2) Enter the number of times the experiment was performed.\n";
-
-    std::cout << "\nNumber of times the favorable event occurred\n";
-    int event = input_number();
-
-    std::cout << "Number of times the experiment was performed\n";
-    int experiment = input_number();
-
-    validate_calculation(event, experiment);
-
-    return 0;
 }
