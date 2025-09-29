@@ -7,20 +7,6 @@
     experiment is performed.
 */
 
-/*
-    need to:
-    1) get user input
-        - number of times event occurred
-        - number of times experiment was performed
-    2) validate user input using try-throw-catch
-        - make sure both inputs are positive integers
-        - make sure times event occurred is less than 
-          times experiment was performed
-        - make sure times experiment was performed is not 0
-          times event occurred can be 0
-    3) calculate empirical probability with user input
-*/
-
 // Function to validate user input, must be integer greater than or equal to 0
 bool validate_input(int num)
 {
