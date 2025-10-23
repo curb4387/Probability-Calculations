@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../Empirical-Probability/empirical.cpp"
+#include "../Empirical-Probability/empirical.h"
 
 /*
     This program calculates probability using the theoretical probability formula,

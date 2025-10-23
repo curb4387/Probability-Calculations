@@ -1,5 +1,5 @@
 #include <iostream>
-#include "theoretical.cpp"
+#include "theoretical.h"
 
 int main()
 {

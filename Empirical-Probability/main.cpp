@@ -1,5 +1,5 @@
 #include <iostream>
-#include "empirical.cpp"
+#include "empirical.h"
 
 int main()
 {
